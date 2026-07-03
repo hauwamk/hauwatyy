@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AI Chat</h1>
+    <div id="messages"></div>
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        async function sendMessage(){
+            <!-- Get user input -->
+            let input = document.getElementById('userInput').value;
+            let response = await fetch("{% url 'ai_chat' %}", {
+                method: "POST",
+                
+
+    
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                body: JSON.stringify({message: input})
+            });
+
+                let data = await response.json();
+                document.getElementById('messages').innerHTML += "<p><strong>You:</strong> " + input + 
+                    "</p>"+ "<p><strong>AI:</strong> " + data.response + "</p>";
+            }
+        
+    </script>
+</body>
+</html>
