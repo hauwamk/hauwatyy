@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-uz3+18kueik-@798&(l1i-a^r7esq&p+0y&85lg5&6dabw7snw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['taskk-planner.onrender.com', '.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
