@@ -19,6 +19,5 @@ urlpatterns = [
 
     path('', views.index, name='index'),
     
-    path('chat/', views.chat_page, name='chat_page'),
-    path('ai-chat/', views.ai_chat, name='ai_chat'),
+    
 ]
