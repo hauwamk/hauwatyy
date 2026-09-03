@@ -17,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .container{
             width: 100%;
@@ -51,6 +51,10 @@
         }
         button:hover{
             background-color: #00f2fe;
+        }
+        @media (max-width: 480px) {
+            body { padding: 12px; align-items: flex-start; }
+            .container { padding: 16px; margin-top: 12px; }
         }
     </style>
 </head>

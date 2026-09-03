@@ -5,22 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             padding: 20px;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
         .container {
             max-width: 400px;
+            width: 100%;
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 480px) {
+            body { padding: 12px; align-items: flex-start; }
+            .container { padding: 16px; margin-top: 12px; }
         }
         h2 {
             text-align: center;
@@ -60,12 +68,16 @@
             margin-top: 5px;
             display: block;
         }
-        .ul.errorlist li {
+        ul.errorlist {
+            margin: 0 0 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+        ul.errorlist li {
             color: red;
             font-size: 0.9em;
             margin-top: 5px;
-            list-style-type: none;
-            padding-left: 0;}
+        }
          .error {
             color: red;
             font-size: 0.9em;
@@ -97,7 +109,7 @@
         {% csrf_token %}
         {{ form.as_p }}
             {% for message in messages %}
-                <p style="color: red;">{{ message }}</p>
+                <p class="message {{ message.tags }}">{{ message }}</p>
             {% endfor %}
         <button type="submit">create account</button>
     </form>

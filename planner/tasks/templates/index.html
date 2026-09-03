@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -12,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         
         .box {
@@ -24,7 +25,7 @@
             justify-content: center;
             text-align: center;
             background-color: #fff;
-            padding: 40px;
+            padding: clamp(24px, 6vw, 40px);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
        
@@ -80,6 +81,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    box-sizing: border-box;
     padding: 15px 20px;
     background: #007bff;
     color: white;
@@ -151,8 +153,6 @@
             <a href="{% url 'signup' %}">Sign Up</a>
         {% endif %}
     </div>
-</div>   
-   
 </div>
 <body>
     <div class="box">
